@@ -17,14 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-//    sourceSets {
-//        main.java.srcDirs += 'src/main/java/ru/kuchanov/material'
-//    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.balysv:material-ripple:1.0.2'
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:design:23.0.1'
     compile 'com.android.support:cardview-v7:23.0.1'

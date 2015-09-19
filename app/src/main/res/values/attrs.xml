@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="cardBackGroundColor" format="reference|color" />
-    <attr name="cardBackGroundColorDark" format="reference|color" />
+    <attr name="myCardBackgroundColor" format="color" />
+    <attr name="myCardBackgroundColorDark" format="color" />
+    <!---->
     <attr name="green" format="reference|color" />
     <attr name="greenDark" format="reference|color" />
     <attr name="selectorColor" format="reference|color" />
