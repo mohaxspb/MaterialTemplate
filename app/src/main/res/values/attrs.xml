@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="cardBackGroundColor" format="reference|color" />
+    <attr name="cardBackGroundColorDark" format="reference|color" />
+    <attr name="green" format="reference|color" />
+    <attr name="greenDark" format="reference|color" />
+    <attr name="selectorColor" format="reference|color" />
+    <attr name="overflowIcon" format="reference" />
+    <attr name="settingsIcon" format="reference" />
+    <attr name="refreshIcon" format="reference" />
+    <attr name="commentsIcon" format="reference" />
+    <attr name="shareIcon" format="reference" />
+    <attr name="readenIcon" format="reference" />
+    <attr name="unreadenIcon" format="reference" />
+    <attr name="searchIconOdnako" format="reference" />
+    <attr name="default_image" format="reference" />
+    <attr name="deleteIcon" format="reference" />
+    <attr name="warningIcon" format="reference" />
+
+    <!-- arrows -->
+    <attr name="arrowLeftIcon" format="reference" />
+    <attr name="arrowRightIcon" format="reference" />
+    <attr name="arrowUpIcon" format="reference" />
+    <attr name="arrowDownIcon" format="reference" />
+    <attr name="arrowBackIcon" format="reference" />
+    <!-- media actions -->
+    <attr name="arrowPlayIcon" format="reference" />
+    <attr name="pauseIcon" format="reference" />
+    <!-- more -->
+    <attr name="authorsIcon" format="reference" />
+    <attr name="authorIcon" format="reference" />
+    <attr name="authorsMoreIcon" format="reference" />
+    <attr name="downloadIcon" format="reference" />
+    <attr name="downloadIconSmall" format="reference" />
+    <attr name="saveIcon" format="reference" />
+    <attr name="articleIcon" format="reference" />
+    <attr name="categoryIcon" format="reference" />
+    <attr name="categoriesMoreIcon" format="reference" />
+    <attr name="vibrationIcon" format="reference" />
+    <attr name="systemSettingsIcon" format="reference" />
+    <attr name="aboutIcon" format="reference" />
+    <attr name="marketDownlodIcon" format="reference" />
+    <attr name="marketDOWNLOADEDIcon" format="reference" />
+    <attr name="folderIcon" format="reference" />
+    <attr name="textFormatIcon" format="reference" />
+    <attr name="textSizeIcon" format="reference" />
+    <attr name="nightModeIcon" format="reference" />
+    <attr name="themeIcon" format="reference" />
+    <attr name="openInBrowserIcon" format="reference" />
+    <attr name="mailToMeIcon" format="reference" />
+    <attr name="tabletIcon" format="reference" />
+    <attr name="archiveIcon" format="reference" />
+    <attr name="pagesIcon" format="reference" />
+    <attr name="clearIcon" format="reference" />
+    <attr name="createIcon" format="reference" />
+    <attr name="favoriteStarIcon" format="reference" />
+    <!--  -->
+    <attr name="coverTopToBottom" format="reference" />
+    <attr name="topImgCover" format="reference" />
+</resources>

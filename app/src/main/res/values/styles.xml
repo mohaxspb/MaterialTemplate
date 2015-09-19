@@ -1,0 +1,69 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/material_grey_500</item>
+        <item name="colorPrimaryDark">@color/material_grey_700</item>
+        <item name="colorAccent">@color/material_amber_500</item>
+
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
+        <!-- Customize your theme here. -->
+        <item name="cardBackGroundColor">@color/material_grey_800</item>
+        <item name="cardBackGroundColorDark">@color/material_grey_700</item>
+        <!-- icons -->
+        <item name="themeIcon">@drawable/ic_color_lens_white_48dp</item>
+        <item name="nightModeIcon">@drawable/ic_brightness_4_white_48dp</item>
+        <item name="overflowIcon">@drawable/ic_action_overflow_dark</item>
+        <item name="settingsIcon">@drawable/ic_settings_white_48dp</item>
+        <item name="refreshIcon">@drawable/ic_autorenew_white_48dp</item>
+        <item name="commentsIcon">@drawable/ic_forum_white_48dp</item>
+        <item name="shareIcon">@drawable/ic_share_white_48dp</item>
+        <item name="readenIcon">@drawable/ic_drafts_white_48dp</item>
+        <item name="unreadenIcon">@drawable/ic_markunread_white_48dp</item>
+        <item name="searchIconOdnako">@drawable/ic_search_white_48dp</item>
+        <item name="default_image">@drawable/ic_crop_original_white_48dp</item>
+        <item name="deleteIcon">@drawable/ic_delete_white_48dp</item>
+        <item name="warningIcon">@drawable/ic_warning_white_48dp</item>
+        <!-- arrows -->
+        <item name="arrowLeftIcon">@drawable/ic_keyboard_arrow_left_white_48dp</item>
+        <item name="arrowRightIcon">@drawable/ic_keyboard_arrow_right_white_48dp</item>
+        <item name="arrowUpIcon">@drawable/ic_keyboard_arrow_up_white_48dp</item>
+        <item name="arrowDownIcon">@drawable/ic_keyboard_arrow_down_white_48dp</item>
+        <item name="arrowBackIcon">@drawable/ic_arrow_back_white_48dp</item>
+        <!-- media actions -->
+        <item name="arrowPlayIcon">@drawable/ic_play_arrow_white_48dp</item>
+        <item name="pauseIcon">@drawable/ic_pause_white_48dp</item>
+
+        <!-- more -->
+        <item name="authorsIcon">@drawable/ic_group_white_48dp</item>
+        <item name="authorIcon">@drawable/ic_person_white_48dp</item>
+        <item name="authorsMoreIcon">@drawable/ic_group_add_white_48dp</item>
+        <item name="downloadIcon">@drawable/ic_file_download_white_48dp</item>
+        <item name="downloadIconSmall">@drawable/ic_file_download_grey600_24dp</item>
+        <item name="saveIcon">@drawable/ic_save_white_48dp</item>
+        <item name="articleIcon">@drawable/ic_my_library_books_white_48dp</item>
+        <item name="categoryIcon">@drawable/ic_subject_white_48dp</item>
+        <item name="categoriesMoreIcon">@drawable/ic_playlist_add_white_48dp</item>
+        <item name="vibrationIcon">@drawable/ic_vibration_white_48dp</item>
+        <item name="systemSettingsIcon">@drawable/ic_storage_white_48dp</item>
+        <item name="aboutIcon">@drawable/ic_info_white_48dp</item>
+        <item name="marketDownlodIcon">@drawable/ic_shop_white_48dp</item>
+        <item name="marketDOWNLOADEDIcon">@drawable/ic_play_install_white_48dp</item>
+        <item name="folderIcon">@drawable/ic_folder_special_white_48dp</item>
+        <item name="textFormatIcon">@drawable/ic_text_format_white_48dp</item>
+        <item name="textSizeIcon">@drawable/ic_format_size_white_48dp</item>
+        <item name="openInBrowserIcon">@drawable/ic_open_in_browser_white_48dp</item>
+        <item name="mailToMeIcon">@drawable/ic_send_white_48dp</item>
+        <item name="tabletIcon">@drawable/ic_tablet_android_white_48dp</item>
+        <item name="archiveIcon">@drawable/ic_archive_white_48dp</item>
+        <item name="pagesIcon">@drawable/ic_pages_white_48dp</item>
+        <item name="clearIcon">@drawable/ic_clear_white_48dp</item>
+        <item name="createIcon">@drawable/ic_create_white_48dp</item>
+        <item name="favoriteStarIcon">@drawable/ic_grade_white_48dp</item>
+        <!--  -->
+        <item name="coverTopToBottom">@drawable/img_cover_dark_top_to_bottom</item>
+        <item name="topImgCover">@drawable/top_img_cover_dark</item>
+    </style>
+
+</resources>
