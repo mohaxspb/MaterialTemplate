@@ -17,7 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity implements DrawerUpdateSelected
+public class MainActivity extends AppCompatActivity implements ru.kuchanov.material.DrawerUpdateSelected
 {
     private final static String LOG = MainActivity.class.getSimpleName();
 
@@ -78,12 +78,12 @@ public class MainActivity extends AppCompatActivity implements DrawerUpdateSelec
             drawerLayout.setDrawerListener(mDrawerToggle);
         }
 
-        navigationView.setNavigationItemSelectedListener(new NavigationViewOnNavigationItemSelectedListener(this, drawerLayout, pager));
+        navigationView.setNavigationItemSelectedListener(new ru.kuchanov.material.NavigationViewOnNavigationItemSelectedListener(this, drawerLayout, pager));
         this.updateNavigationViewState(this.checkedDrawerItemId);
 
 
-        this.pager.setAdapter(new PagerAdapter(this.getSupportFragmentManager(), 3));
-        this.pager.addOnPageChangeListener(new PagerAdapterOnPageChangeListener(this));
+        this.pager.setAdapter(new ru.kuchanov.material.PagerAdapter(this.getSupportFragmentManager(), 3));
+        this.pager.addOnPageChangeListener(new ru.kuchanov.material.PagerAdapterOnPageChangeListener(this));
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Tab 111111111111"));
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements DrawerUpdateSelec
         tabLayout.addTab(tabLayout.newTab().setText("Tab 333333333333"));
 
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayoutOnTabSelectedListener(this, pager));
+        tabLayout.setOnTabSelectedListener(new ru.kuchanov.material.TabLayoutOnTabSelectedListener(this, pager));
 
         final CollapsingToolbarLayout collapsingToolbarLayout2 = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_2);
         collapsingToolbarLayout2.setTitle(this.getResources().getString(R.string.app_name));

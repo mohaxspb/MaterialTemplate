@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.example.explisttest"
+        applicationId "ru.kuchanov.material"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+//    sourceSets {
+//        main.java.srcDirs += 'src/main/java/ru/kuchanov/material'
+//    }
 }
 
 dependencies {
