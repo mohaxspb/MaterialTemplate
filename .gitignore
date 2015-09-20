@@ -7,6 +7,5 @@
 /app/build/tmp
 /app/build/outputs/logs
 /app/build/outputs/apk/*
-/app/build/outputs/apk/app-debug-unaligned.apk
 !/app/build/outputs/apk/app-debug.apk
 /captures
