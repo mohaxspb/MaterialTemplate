@@ -2,6 +2,7 @@
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
+/.idea
 .DS_Store
 !/app/build/outputs/apk/app-debug.apk
 /app/build/*
