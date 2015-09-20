@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\CODE\Android\development\ExpListTest\app\build\intermediates\exploded-aar\com.balysv\material-ripple\1.0.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c733e9d1b065d940a08f2fca0ff920dfc08d94cc">
+        <dex dex="E:\CODE\Android\development\ExpListTest\app\build\intermediates\pre-dexed\debug\classes-54fc98422a6c92188bdec9b621b968b6ffb367e8.jar" />
+    </item>
+
+</items>

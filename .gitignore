@@ -1,8 +1,6 @@
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
-/.idea/*
+.idea
 .DS_Store
 /app/build/*
 !/app/build/outputs/apk/app-debug.apk
