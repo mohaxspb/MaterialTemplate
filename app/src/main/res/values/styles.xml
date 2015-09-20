@@ -1,10 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!--<item name="android:windowActionBarOverlay">true</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>-->
+    <style name="Base.LightTheme" parent="Theme.AppCompat.Light.NoActionBar" >
         <!---->
         <item name="colorPrimary">@color/material_grey_400</item>
         <item name="colorPrimaryDark">@color/material_grey_500</item>
@@ -69,6 +66,10 @@
         <item name="clearIcon">@drawable/ic_clear_white_48dp</item>
         <item name="createIcon">@drawable/ic_create_white_48dp</item>
         <item name="favoriteStarIcon">@drawable/ic_grade_white_48dp</item>
+    </style>
+
+    <style name="LightTheme" parent="Base.LightTheme" >
+        <!--nothing to extend-->
     </style>
 
 </resources>
