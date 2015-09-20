@@ -3,6 +3,6 @@
 /.idea/workspace.xml
 /.idea/libraries
 .DS_Store
-app/build/*
-!app/build/outputs/apk/app-debug.apk
+/app/build/*
+!/app/build/outputs/apk/app-debug.apk
 /captures
