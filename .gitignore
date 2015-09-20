@@ -2,6 +2,9 @@
 /local.properties
 .idea
 .DS_Store
-/app/build/*
-!/app/build/outputs/apk/*
+/app/build/generated
+/app/build/intermediates
+/app/build/tmp
+/app/build/outputs/logs
+!/app/build/outputs/apk
 /captures
