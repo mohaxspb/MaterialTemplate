@@ -3,5 +3,5 @@
 .idea
 .DS_Store
 /app/build/*
-!/app/build/outputs/apk/app-debug.apk
+!/app/build/outputs/apk/*
 /captures
