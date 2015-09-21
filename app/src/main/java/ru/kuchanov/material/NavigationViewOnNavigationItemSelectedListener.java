@@ -28,12 +28,6 @@ public class NavigationViewOnNavigationItemSelectedListener implements Navigatio
     {
         int checkedDrawerItemId = menuItem.getItemId();
 
-        int colorId;
-        int[] attrs = new int[]{android.R.attr.colorPrimaryDark};
-        TypedArray ta = this.pager.getContext().obtainStyledAttributes(attrs);
-        colorId = ta.getColor(0, Color.GRAY);
-        ta.recycle();
-
         Snackbar snackbar;
         String snackBarMsg = "";
         switch (menuItem.getItemId())
@@ -53,6 +47,11 @@ public class NavigationViewOnNavigationItemSelectedListener implements Navigatio
         }
         snackbar = Snackbar.make(pager, snackBarMsg, Snackbar.LENGTH_SHORT);
         View snackBarView = snackbar.getView();
+        int colorId;
+        int[] attrs = new int[]{android.R.attr.colorPrimaryDark};
+        TypedArray ta = this.pager.getContext().obtainStyledAttributes(attrs);
+        colorId = ta.getColor(0, Color.GRAY);
+        ta.recycle();
         snackBarView.setBackgroundColor(colorId);
         snackbar.show();
 

@@ -1,6 +1,10 @@
 <resources>
 
-    <style name="LightTheme" parent="Base.LightTheme">
+    <style name="My.Theme.Light" parent="Base.Theme.Light">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="My.Theme.Dark." parent="Base.Theme.Dark">
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 

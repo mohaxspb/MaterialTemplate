@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="LightTheme" parent="Base.LightTheme">
+    <style name="My.Theme.Light" parent="Base.Theme.Light">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:navigationBarColor">@color/material_grey_500</item>
     </style>
+
+    <style name="My.Theme.Dark" parent="Base.Theme.Dark">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:navigationBarColor">@color/material_grey_900</item>
+    </style>
+
 </resources>

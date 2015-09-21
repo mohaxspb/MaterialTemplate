@@ -1,0 +1,20 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- These settings headers are only used on tablets. -->
+
+    <header
+        android:fragment="ru.kuchanov.material.ActivitySettings$GeneralPreferenceFragment"
+        android:title="@string/pref_header_general"/>
+
+    <header
+        android:fragment="ru.kuchanov.material.ActivitySettings$NotificationPreferenceFragment"
+        android:title="@string/pref_header_notifications"/>
+
+    <header
+        android:fragment="ru.kuchanov.material.ActivitySettings$FragmentPreferenceAbout"
+        android:icon="?aboutIcon"
+        android:key="@string/pref_header_about_key"
+        android:summary="@string/pref_header_about_summary"
+        android:title="@string/pref_about_title"/>
+
+</preference-headers>
