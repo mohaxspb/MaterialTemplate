@@ -115,9 +115,8 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         tabLayout.setOnTabSelectedListener(new ru.kuchanov.material.TabLayoutOnTabSelectedListener(this, pager));
 
         final CollapsingToolbarLayout collapsingToolbarLayout;
-        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_2);
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(this.getResources().getString(R.string.app_name));
-
     }
 
     @Override

@@ -38,6 +38,7 @@
         <item name="authorIcon">@drawable/ic_person_grey600_48dp</item>
         <item name="authorsMoreIcon">@drawable/ic_group_add_grey600_48dp</item>
         <item name="downloadIcon">@drawable/ic_file_download_grey600_48dp</item>
+        <item name="downloadIconWhite">@drawable/ic_file_download_white_48dp</item>
         <item name="saveIcon">@drawable/ic_save_grey600_48dp</item>
         <item name="articleIcon">@drawable/ic_my_library_books_grey600_48dp</item>
         <item name="categoryIcon">@drawable/ic_subject_grey600_48dp</item>
@@ -68,10 +69,10 @@
         <item name="android:textColorPrimaryInverse">@color/material_grey_800</item>
         <item name="android:textColorSecondary">@color/material_grey_400</item>
         <item name="actionMenuTextColor">@color/material_grey_400</item>
-        <item name="android:windowBackground">@color/material_grey_500</item>
+        <item name="android:windowBackground">@color/material_grey_900</item>
         <!--custom colors-->
-        <item name="myCardBackgroundColor">@color/material_grey_700</item>
-        <item name="myCardBackgroundColorDark">@color/material_grey_800</item>
+        <item name="myCardBackgroundColor">@color/material_grey_800</item>
+        <item name="myCardBackgroundColorDark">@color/material_grey_700</item>
         <!-- icons -->
 
         <item name="themeIconSmall">@drawable/ic_color_lens_white_36dp</item>
@@ -92,6 +93,7 @@
         <item name="authorIcon">@drawable/ic_person_white_48dp</item>
         <item name="authorsMoreIcon">@drawable/ic_group_add_white_48dp</item>
         <item name="downloadIcon">@drawable/ic_file_download_white_48dp</item>
+        <item name="downloadIconWhite">@drawable/ic_file_download_white_48dp</item>
         <item name="saveIcon">@drawable/ic_save_white_48dp</item>
         <item name="articleIcon">@drawable/ic_my_library_books_white_48dp</item>
         <item name="categoryIcon">@drawable/ic_subject_white_48dp</item>
