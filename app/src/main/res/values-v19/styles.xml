@@ -4,7 +4,7 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
-    <style name="My.Theme.Dark." parent="Base.Theme.Dark">
+    <style name="My.Theme.Dark" parent="Base.Theme.Dark">
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 

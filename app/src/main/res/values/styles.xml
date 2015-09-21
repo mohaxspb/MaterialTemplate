@@ -15,14 +15,23 @@
         <!--custom colors-->
         <item name="myCardBackgroundColor">@color/material_grey_50</item>
         <item name="myCardBackgroundColorDark">@color/material_grey_300</item>
-        <!-- icons -->
+        <!-- settings icons -->
+        <item name="themeIcon">@drawable/ic_color_lens_grey600_48dp</item>
+        <item name="vibrationIcon">@drawable/ic_vibration_grey600_48dp</item>
+        <item name="aboutIcon">@drawable/ic_info_grey600_48dp</item>
+
+        <item name="themeIconSmall">@drawable/ic_color_lens_grey600_36dp</item>
+        <item name="vibrationIconSmall">@drawable/ic_vibration_grey600_36dp</item>
+        <item name="aboutIconSmall">@drawable/ic_info_grey600_36dp</item>
+
         <item name="nightModeIcon">@drawable/ic_brightness_4_grey600_48dp</item>
+
         <item name="settingsIcon">@drawable/ic_settings_grey600_48dp</item>
         <item name="commentsIcon">@drawable/ic_forum_grey600_48dp</item>
         <item name="shareIcon">@drawable/ic_share_grey600_48dp</item>
         <item name="readIcon">@drawable/ic_drafts_grey600_48dp</item>
         <item name="unreadIcon">@drawable/ic_markunread_grey600_48dp</item>
-        <item name="default_image">@drawable/ic_crop_original_grey600_48dp</item>
+        <item name="defaultImage">@drawable/ic_crop_original_grey600_48dp</item>
         <item name="deleteIcon">@drawable/ic_delete_grey600_48dp</item>
         <item name="warningIcon">@drawable/ic_warning_grey600_48dp</item>
         <item name="authorsIcon">@drawable/ic_group_grey600_48dp</item>
@@ -33,8 +42,8 @@
         <item name="articleIcon">@drawable/ic_my_library_books_grey600_48dp</item>
         <item name="categoryIcon">@drawable/ic_subject_grey600_48dp</item>
         <item name="categoriesMoreIcon">@drawable/ic_playlist_add_grey600_48dp</item>
-        <item name="vibrationIcon">@drawable/ic_vibration_grey600_48dp</item>
-        <item name="aboutIcon">@drawable/ic_info_grey600_48dp</item>
+
+
         <item name="textFormatIcon">@drawable/ic_text_format_grey600_48dp</item>
         <item name="textSizeIcon">@drawable/ic_format_size_grey600_48dp</item>
         <item name="openInBrowserIcon">@drawable/ic_open_in_browser_grey600_48dp</item>
@@ -55,22 +64,28 @@
         <item name="colorAccent">@color/material_indigo_500</item>
         <item name="actionMenuTextAppearance">@color/material_grey_400</item>
         <item name="android:textColor">@color/material_grey_400</item>
-        <item name="android:textColorPrimary">@color/material_grey_400</item>
+        <item name="android:textColorPrimary">@color/material_grey_300</item>
         <item name="android:textColorPrimaryInverse">@color/material_grey_800</item>
-        <item name="android:textColorSecondary">@color/material_grey_300</item>
+        <item name="android:textColorSecondary">@color/material_grey_400</item>
         <item name="actionMenuTextColor">@color/material_grey_400</item>
         <item name="android:windowBackground">@color/material_grey_500</item>
         <!--custom colors-->
-        <item name="myCardBackgroundColor">@color/material_grey_500</item>
-        <item name="myCardBackgroundColorDark">@color/material_grey_700</item>
+        <item name="myCardBackgroundColor">@color/material_grey_700</item>
+        <item name="myCardBackgroundColorDark">@color/material_grey_800</item>
         <!-- icons -->
+
+        <item name="themeIconSmall">@drawable/ic_color_lens_white_36dp</item>
+        <item name="vibrationIconSmall">@drawable/ic_vibration_white_36dp</item>
+        <item name="aboutIconSmall">@drawable/ic_info_white_36dp</item>
+
+        <item name="themeIcon">@drawable/ic_color_lens_white_48dp</item>
         <item name="nightModeIcon">@drawable/ic_brightness_4_white_48dp</item>
         <item name="settingsIcon">@drawable/ic_settings_white_48dp</item>
         <item name="commentsIcon">@drawable/ic_forum_white_48dp</item>
         <item name="shareIcon">@drawable/ic_share_white_48dp</item>
         <item name="readIcon">@drawable/ic_drafts_white_48dp</item>
         <item name="unreadIcon">@drawable/ic_markunread_white_48dp</item>
-        <item name="default_image">@drawable/ic_crop_original_white_48dp</item>
+        <item name="defaultImage">@drawable/ic_crop_original_white_48dp</item>
         <item name="deleteIcon">@drawable/ic_delete_white_48dp</item>
         <item name="warningIcon">@drawable/ic_warning_white_48dp</item>
         <item name="authorsIcon">@drawable/ic_group_white_48dp</item>

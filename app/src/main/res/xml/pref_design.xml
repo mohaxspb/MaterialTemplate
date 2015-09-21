@@ -1,0 +1,12 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:icon="?nightModeIcon"
+        android:key="@string/pref_design_key_night_mode"
+        android:summaryOff="Ночной режим"
+        android:summaryOn="Ночной режим"
+        android:switchTextOff="Выкл"
+        android:switchTextOn="Вкл" />
+
+</PreferenceScreen>
