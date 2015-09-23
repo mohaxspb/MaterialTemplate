@@ -1,19 +1,19 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
 
     <header
-        android:fragment="ru.kuchanov.material.fragments.FragmentPreferenceDesign"
+        android:fragment="ru.kuchanov.material.fragment.FragmentPreferenceDesign"
         android:icon="?themeIconSmall"
         android:summary="@string/pref_header_design_summary"
         android:title="@string/pref_header_design_title"/>
 
     <header
-        android:fragment="ru.kuchanov.material.fragments.FragmentPreferenceNotifications"
+        android:fragment="ru.kuchanov.material.fragment.FragmentPreferenceNotifications"
         android:icon="?vibrationIconSmall"
         android:summary="@string/pref_header_notifications_summary"
         android:title="@string/pref_header_notifications_title"/>
 
     <header
-        android:fragment="ru.kuchanov.material.fragments.FragmentPreferenceAbout"
+        android:fragment="ru.kuchanov.material.fragment.FragmentPreferenceAbout"
         android:icon="?aboutIconSmall"
         android:summary="@string/pref_header_about_summary"
         android:title="@string/pref_header_about_title"/>

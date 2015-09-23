@@ -16,6 +16,7 @@
         <item name="android:windowBackground">@color/material_grey_300</item>
         <item name="android:windowNoTitle">false</item>
         <item name="android:windowActionBar">true</item>
+        <item name="android:navigationBarColor">@color/material_grey_500</item>
     </style>
 
     <style name="Theme.Preference.Dark" parent="Base.Theme.Dark">
@@ -23,6 +24,9 @@
         <item name="android:windowBackground">@color/material_grey_800</item>
         <item name="android:windowNoTitle">false</item>
         <item name="android:windowActionBar">true</item>
-    </style>a
+        <item name="android:navigationBarColor">@color/material_grey_900</item>
+    </style>
+
+
 
 </resources>

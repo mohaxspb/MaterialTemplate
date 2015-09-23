@@ -15,18 +15,37 @@
             android:id="@+id/cover"
             android:layout_width="match_parent"
             android:layout_height="290dp"
-            android:layout_marginTop="-290dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/drawer_header"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:layout_scrollFlags="scroll|enterAlways"/>
+            android:src="@drawable/drawer_header"/>
+
+        <LinearLayout
+            android:id="@+id/cover_2"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:orientation="vertical"></LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:windowBackground"/>
+            </LinearLayout>
+        </LinearLayout>
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/detail_backdrop_height"
-            android:background="@color/transparent"
             android:fitsSystemWindows="true"
+            android:background="@color/transparent"
             android:minHeight="96dip">
 
             <android.support.design.widget.CollapsingToolbarLayout
@@ -34,10 +53,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/detail_backdrop_height"
                 android:minHeight="88dip"
+                app:collapsedTitleGravity="top|center_vertical"
+                app:expandedTitleGravity="center"
                 app:contentScrim="?attr/colorPrimary"
-                app:expandedTitleMarginBottom="70dp"
-                app:expandedTitleMarginEnd="64dp"
-                app:expandedTitleMarginStart="48dp"
+                app:expandedTitleMarginBottom="50dp"
+                app:expandedTitleMarginStart="100dp"
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
 
                 <android.support.v7.widget.Toolbar
@@ -52,6 +72,7 @@
                     android:id="@+id/tab_layout"
                     android:layout_width="match_parent"
                     android:layout_height="40dip"
+                    android:minHeight="40dip"
                     android:layout_gravity="bottom"
                     android:gravity="bottom"
                     app:layout_scrollFlags="scroll|enterAlways"
@@ -61,6 +82,7 @@
             </android.support.design.widget.CollapsingToolbarLayout>
         </android.support.design.widget.AppBarLayout>
 
+
         <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,8 +90,8 @@
             android:clickable="true"
             android:src="?downloadIconWhite"
             app:layout_anchor="@+id/pager"
-            app:layout_behavior="ru.kuchanov.material.ScrollAwareFABBehavior"
-            app:layout_anchorGravity="bottom|right|end"/>
+            app:layout_anchorGravity="bottom|right|end"
+            app:layout_behavior="ru.kuchanov.material.ScrollAwareFABBehavior"/>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/pager"

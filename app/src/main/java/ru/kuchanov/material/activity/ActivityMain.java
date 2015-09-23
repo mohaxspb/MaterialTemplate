@@ -1,14 +1,18 @@
-package ru.kuchanov.material;
+package ru.kuchanov.material.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -19,27 +23,41 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.lang.reflect.Method;
 
-public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelected
+import ru.kuchanov.material.DrawerUpdateSelected;
+import ru.kuchanov.material.ImageChanger;
+import ru.kuchanov.material.NavigationViewOnNavigationItemSelectedListener;
+import ru.kuchanov.material.R;
+
+public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelected, ImageChanger
 {
     protected static final String NAV_ITEM_ID = "NAV_ITEM_ID";
     private final static String LOG = ActivityMain.class.getSimpleName();
+    final int[] coverImgsIds = {R.drawable.drawer_header, R.drawable.cremlin, R.drawable.petergof};
     protected Toolbar toolbar;
     protected NavigationView navigationView;
+    protected ImageView cover;
     protected DrawerLayout drawerLayout;
     protected ActionBarDrawerToggle mDrawerToggle;
     protected boolean drawerOpened;
     protected ViewPager pager;
     protected int checkedDrawerItemId;
-
     protected SharedPreferences pref;
+    private Context ctx;
 
+    //    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         Log.d(LOG, "onCreate");
+
+        this.ctx = this;
 
         //set theme before super and set content to apply it
 //get default settings to get all settings later
@@ -104,9 +122,9 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
 
 
         this.pager.setAdapter(new ru.kuchanov.material.PagerAdapter(this.getSupportFragmentManager(), 3));
-        this.pager.addOnPageChangeListener(new ru.kuchanov.material.PagerAdapterOnPageChangeListener(this));
+        this.pager.addOnPageChangeListener(new ru.kuchanov.material.PagerAdapterOnPageChangeListener(this, this));
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        final TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Tab 111111111111"));
         tabLayout.addTab(tabLayout.newTab().setText("Tab 222222222222"));
         tabLayout.addTab(tabLayout.newTab().setText("Tab 333333333333"));
@@ -117,6 +135,92 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         final CollapsingToolbarLayout collapsingToolbarLayout;
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(this.getResources().getString(R.string.app_name));
+
+        final AppBarLayout appBar = (AppBarLayout) this.findViewById(R.id.app_bar_layout);
+        cover = (ImageView) findViewById(R.id.cover);
+        cover.setAlpha(0f);
+        cover.setScaleX(1.3f);
+        cover.setScaleY(1.3f);
+//        cover.animate().cancel();
+        cover.animate().alpha(1).setDuration(1200);
+
+        final LinearLayout cover2 = (LinearLayout) findViewById(R.id.cover_2);
+
+        AppBarLayout.OnOffsetChangedListener mListener = new AppBarLayout.OnOffsetChangedListener()
+        {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset)
+            {
+                //move backgroubng image and its bottom border
+                cover.setY(verticalOffset * 0.7f);
+                cover2.setY(verticalOffset * 0.7f);
+
+                if (verticalOffset < -appBarLayout.getHeight() * 0.7f)
+                {
+                    if (cover.getAlpha() != 0)
+                    {
+//                        cover.animate().cancel();
+                        cover.animate().alpha(0).setDuration(1200);
+                    }
+                }
+                else
+                {
+                    //show cover if we start to expand collapsingToolbarLayout
+                    int heightOfToolbarAndStatusBar = toolbar.getHeight() + getStatusBarHeight();
+                    int s = appBarLayout.getHeight() - heightOfToolbarAndStatusBar;
+                    boolean isCollapsed = (verticalOffset > -s) ? false : true;
+                    if (cover.getAlpha() < 1 && verticalOffset > -s)
+                    {
+//                        cover.animate().cancel();
+                        cover.animate().alpha(1).setDuration(1200);
+                    }
+                }
+            }
+        };
+        appBar.addOnOffsetChangedListener(mListener);
+
+        this.startAnimation();
+    }
+
+    public int getStatusBarHeight()
+    {
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0)
+        {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
+
+    public void startAnimation()
+    {
+        final View brackets = findViewById(R.id.cover);
+        brackets.setVisibility(View.VISIBLE);
+
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.test2);
+        anim.setAnimationListener(new Animation.AnimationListener()
+        {
+
+            @Override
+            public void onAnimationEnd(Animation arg0)
+            {
+                Animation anim = AnimationUtils.loadAnimation(ctx, R.anim.test2);
+                anim.setAnimationListener(this);
+                brackets.startAnimation(anim);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation arg0)
+            {
+            }
+
+            @Override
+            public void onAnimationStart(Animation arg0)
+            {
+            }
+        });
+        brackets.startAnimation(anim);
     }
 
     @Override
@@ -225,15 +329,37 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
                     Log.e(getClass().getSimpleName(), "onMenuOpened...unable to set icons for overflow menu", e);
                 }
             }
-        }
 
-        boolean nightModeIsOn = this.pref.getBoolean(ActivitySettings.PREF_KEY_NIGHT_MODE, false);
-        MenuItem themeMenuItem = menu.findItem(R.id.night_mode_switcher);
-        if (nightModeIsOn)
-        {
-            themeMenuItem.setChecked(true);
+            boolean nightModeIsOn = this.pref.getBoolean(ActivitySettings.PREF_KEY_NIGHT_MODE, false);
+            MenuItem themeMenuItem = menu.findItem(R.id.night_mode_switcher);
+            if (nightModeIsOn)
+            {
+                themeMenuItem.setChecked(true);
+            }
         }
-
         return super.onPrepareOptionsPanel(view, menu);
+    }
+
+    @Override
+    public void updateImage(final int positionInPager)
+    {
+//        Log.i(LOG, "updateImage with position in pager: "+positionInPager);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+        {
+            this.cover.animate().alpha(0).setDuration(600).withEndAction(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    cover.setImageResource(coverImgsIds[positionInPager]);
+                    cover.animate().alpha(1).setDuration(600);
+                }
+            });
+        }
+        else
+        {
+            cover.setImageResource(coverImgsIds[positionInPager]);
+        }
+//        cover.setImageResource(coverImgsIds[positionInPager]);
     }
 }

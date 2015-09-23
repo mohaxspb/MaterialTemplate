@@ -1,4 +1,4 @@
-package ru.kuchanov.material.fragments;
+package ru.kuchanov.material.fragment;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;

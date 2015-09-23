@@ -1,4 +1,4 @@
-package ru.kuchanov.material.fragments;
+package ru.kuchanov.material.fragment;
 
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -11,7 +11,7 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.Toast;
 
-import ru.kuchanov.material.ActivitySettings;
+import ru.kuchanov.material.activity.ActivitySettings;
 import ru.kuchanov.material.R;
 
 /**

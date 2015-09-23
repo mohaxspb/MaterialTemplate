@@ -1,11 +1,8 @@
-package ru.kuchanov.material.fragments;
+package ru.kuchanov.material.fragment;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
-import android.util.Log;
 
-import ru.kuchanov.material.ActivitySettings;
 import ru.kuchanov.material.R;
 
 /**

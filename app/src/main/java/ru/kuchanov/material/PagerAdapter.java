@@ -4,6 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import ru.kuchanov.material.fragment.FragmentTab2;
+import ru.kuchanov.material.fragment.FragmentTab1;
+import ru.kuchanov.material.fragment.FragmentTab3;
+
 /**
  * Created by Юрий on 17.09.2015.
  */
@@ -21,13 +25,13 @@ public class PagerAdapter extends FragmentStatePagerAdapter
 
         switch (position) {
             case 0:
-                TabFragment1 tab1 = new TabFragment1();
+                FragmentTab1 tab1 = new FragmentTab1();
                 return tab1;
             case 1:
-                TabFragment2 tab2 = new TabFragment2();
+                FragmentTab2 tab2 = new FragmentTab2();
                 return tab2;
             case 2:
-                TabFragment3 tab3 = new TabFragment3();
+                FragmentTab3 tab3 = new FragmentTab3();
                 return tab3;
             default:
                 return null;

@@ -7,11 +7,13 @@ public class PagerAdapterOnPageChangeListener implements ViewPager.OnPageChangeL
     //private final static String LOG = PagerAdapterOnPageChangeListener.class.getSimpleName();
 
     DrawerUpdateSelected drawerUpdateSelected;
+    ImageChanger imageChanger;
 
 
-    public PagerAdapterOnPageChangeListener(DrawerUpdateSelected drawerUpdateSelected)
+    public PagerAdapterOnPageChangeListener(DrawerUpdateSelected drawerUpdateSelected, ImageChanger imageChanger)
     {
         this.drawerUpdateSelected = drawerUpdateSelected;
+        this.imageChanger=imageChanger;
     }
 
     @Override
@@ -31,6 +33,7 @@ public class PagerAdapterOnPageChangeListener implements ViewPager.OnPageChangeL
                 break;
         }
         drawerUpdateSelected.updateNavigationViewState(checkedDrawerItemId);
+        this.imageChanger.updateImage(position);
     }
 
     @Override
