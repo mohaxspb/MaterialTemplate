@@ -12,7 +12,6 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -195,19 +194,22 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
 
     public void startAnimation()
     {
-        final View brackets = findViewById(R.id.cover);
-        brackets.setVisibility(View.VISIBLE);
+        //final View cover = findViewById(R.id.cover);
+        cover.setVisibility(View.VISIBLE);
 
-        Animation anim = AnimationUtils.loadAnimation(this, R.anim.test2);
+        final int animResId=R.anim.test2;
+
+        Animation anim = AnimationUtils.loadAnimation(this, animResId);
+//        anim.setInterpolator(new AccelerateDecelerateInterpolator());
         anim.setAnimationListener(new Animation.AnimationListener()
         {
 
             @Override
             public void onAnimationEnd(Animation arg0)
             {
-                Animation anim = AnimationUtils.loadAnimation(ctx, R.anim.test2);
+                Animation anim = AnimationUtils.loadAnimation(ctx, animResId);
                 anim.setAnimationListener(this);
-                brackets.startAnimation(anim);
+                cover.startAnimation(anim);
             }
 
             @Override
@@ -220,7 +222,8 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
             {
             }
         });
-        brackets.startAnimation(anim);
+
+        cover.startAnimation(anim);
     }
 
     @Override
