@@ -21,31 +21,30 @@
         <LinearLayout
             android:id="@+id/cover_2"
             android:layout_width="match_parent"
+            android:background="@android:color/transparent"
             android:layout_height="400dp"
             android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="290dp"
-            android:orientation="vertical"></LinearLayout>
+            <LinearLayout
+                android:id="@+id/cover_2_inside"
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:background="@android:color/transparent"
+                android:orientation="vertical"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="?android:windowBackground"/>
-            </LinearLayout>
+                android:layout_weight="1"
+                android:background="?android:windowBackground"/>
         </LinearLayout>
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/detail_backdrop_height"
-            android:fitsSystemWindows="true"
             android:background="@color/transparent"
+            android:fitsSystemWindows="true"
             android:minHeight="96dip">
 
             <android.support.design.widget.CollapsingToolbarLayout
@@ -54,8 +53,8 @@
                 android:layout_height="@dimen/detail_backdrop_height"
                 android:minHeight="88dip"
                 app:collapsedTitleGravity="top|center_vertical"
-                app:expandedTitleGravity="center"
                 app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleGravity="center"
                 app:expandedTitleMarginBottom="50dp"
                 app:expandedTitleMarginStart="100dp"
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
@@ -72,9 +71,9 @@
                     android:id="@+id/tab_layout"
                     android:layout_width="match_parent"
                     android:layout_height="40dip"
-                    android:minHeight="40dip"
                     android:layout_gravity="bottom"
                     android:gravity="bottom"
+                    android:minHeight="40dip"
                     app:layout_scrollFlags="scroll|enterAlways"
                     app:tabGravity="center"
                     app:tabMode="scrollable"/>

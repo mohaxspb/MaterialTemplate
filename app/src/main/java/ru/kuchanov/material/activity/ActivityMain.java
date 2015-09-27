@@ -1,10 +1,10 @@
 package ru.kuchanov.material.activity;
 
+import android.animation.Animator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.AppBarLayout;
@@ -33,6 +33,7 @@ import ru.kuchanov.material.DrawerUpdateSelected;
 import ru.kuchanov.material.ImageChanger;
 import ru.kuchanov.material.NavigationViewOnNavigationItemSelectedListener;
 import ru.kuchanov.material.R;
+import ru.kuchanov.material.utils.AttributeGetter;
 
 public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelected, ImageChanger
 {
@@ -192,39 +193,7 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         return result;
     }
 
-    public void startAnimation()
-    {
-        //final View cover = findViewById(R.id.cover);
-        cover.setVisibility(View.VISIBLE);
 
-        final int animResId=R.anim.test2;
-
-        Animation anim = AnimationUtils.loadAnimation(this, animResId);
-//        anim.setInterpolator(new AccelerateDecelerateInterpolator());
-        anim.setAnimationListener(new Animation.AnimationListener()
-        {
-
-            @Override
-            public void onAnimationEnd(Animation arg0)
-            {
-                Animation anim = AnimationUtils.loadAnimation(ctx, animResId);
-                anim.setAnimationListener(this);
-                cover.startAnimation(anim);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation arg0)
-            {
-            }
-
-            @Override
-            public void onAnimationStart(Animation arg0)
-            {
-            }
-        });
-
-        cover.startAnimation(anim);
-    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState)
@@ -347,22 +316,64 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
     public void updateImage(final int positionInPager)
     {
 //        Log.i(LOG, "updateImage with position in pager: "+positionInPager);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+        final View v=findViewById(R.id.cover_2_inside);
+        v.setAlpha(0);
+        int colorAccent= AttributeGetter.getColor(this, android.R.attr.colorAccent);
+        v.setBackgroundColor(colorAccent);
+        v.animate().cancel();
+
+        v.animate().alpha(1).setDuration(400).setListener(new Animator.AnimatorListener()
         {
-            this.cover.animate().alpha(0).setDuration(600).withEndAction(new Runnable()
+            @Override
+            public void onAnimationStart(Animator animation)
+            {}
+
+            @Override
+            public void onAnimationEnd(Animator animation)
             {
-                @Override
-                public void run()
-                {
-                    cover.setImageResource(coverImgsIds[positionInPager]);
-                    cover.animate().alpha(1).setDuration(600);
-                }
-            });
-        }
-        else
+                cover.setImageResource(coverImgsIds[positionInPager]);
+                v.animate().alpha(0).setDuration(400);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation)
+            {}
+
+            @Override
+            public void onAnimationRepeat(Animator animation)
+            {}
+        });
+    }
+
+    public void startAnimation()
+    {
+        cover.setVisibility(View.VISIBLE);
+
+        final int animResId = R.anim.test2;
+
+        Animation anim = AnimationUtils.loadAnimation(this, animResId);
+        anim.setAnimationListener(new Animation.AnimationListener()
         {
-            cover.setImageResource(coverImgsIds[positionInPager]);
-        }
-//        cover.setImageResource(coverImgsIds[positionInPager]);
+
+            @Override
+            public void onAnimationEnd(Animation arg0)
+            {
+                Animation anim = AnimationUtils.loadAnimation(ctx, animResId);
+                anim.setAnimationListener(this);
+                cover.startAnimation(anim);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation arg0)
+            {
+            }
+
+            @Override
+            public void onAnimationStart(Animation arg0)
+            {
+            }
+        });
+
+        cover.startAnimation(anim);
     }
 }
