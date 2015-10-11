@@ -316,11 +316,18 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
     public void updateImage(final int positionInPager)
     {
 //        Log.i(LOG, "updateImage with position in pager: "+positionInPager);
-        final View v=findViewById(R.id.cover_2_inside);
+        final LinearLayout v=(LinearLayout)findViewById(R.id.cover_2_inside);
         v.setAlpha(0);
         int colorAccent= AttributeGetter.getColor(this, android.R.attr.colorAccent);
         v.setBackgroundColor(colorAccent);
         v.animate().cancel();
+
+        //prevent showing transition coloring if cover isn't showing
+        if(this.cover.getAlpha()==0)
+        {
+            cover.setImageResource(coverImgsIds[positionInPager]);
+            return;
+        }
 
         v.animate().alpha(1).setDuration(400).setListener(new Animator.AnimatorListener()
         {
