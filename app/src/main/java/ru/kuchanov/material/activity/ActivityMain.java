@@ -38,6 +38,7 @@ import ru.kuchanov.material.utils.AttributeGetter;
 public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelected, ImageChanger
 {
     protected static final String NAV_ITEM_ID = "NAV_ITEM_ID";
+    protected static final String KEY_IS_COLLAPSED = "KEY_IS_COLLAPSED";
     private final static String LOG = ActivityMain.class.getSimpleName();
     final int[] coverImgsIds = {R.drawable.drawer_header, R.drawable.cremlin, R.drawable.petergof};
     protected Toolbar toolbar;
@@ -50,6 +51,7 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
     protected int checkedDrawerItemId;
     protected SharedPreferences pref;
     private Context ctx;
+    protected boolean isCollapsed;
 
     //    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -73,10 +75,12 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         if (null == savedInstanceState)
         {
             checkedDrawerItemId = R.id.tab_1;
+            isCollapsed=true;
         }
         else
         {
             checkedDrawerItemId = savedInstanceState.getInt(NAV_ITEM_ID, R.id.tab_1);
+            isCollapsed=savedInstanceState.getBoolean(KEY_IS_COLLAPSED, false);
         }
 
         setContentView(R.layout.activity_main);
@@ -131,17 +135,16 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new ru.kuchanov.material.TabLayoutOnTabSelectedListener(this, pager));
 
-        final CollapsingToolbarLayout collapsingToolbarLayout;
+        CollapsingToolbarLayout collapsingToolbarLayout;
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-//        collapsingToolbarLayout.setTitle("Material");
         collapsingToolbarLayout.setTitleEnabled(false);
 
         final AppBarLayout appBar = (AppBarLayout) this.findViewById(R.id.app_bar_layout);
+        appBar.setExpanded(isCollapsed, true);
         cover = (ImageView) findViewById(R.id.cover);
         cover.setAlpha(0f);
         cover.setScaleX(1.3f);
         cover.setScaleY(1.3f);
-//        cover.animate().cancel();
         cover.animate().alpha(1).setDuration(1200);
 
         final LinearLayout cover2 = (LinearLayout) findViewById(R.id.cover_2);
@@ -151,6 +154,17 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset)
             {
+                if(verticalOffset==0)
+                {
+                    //collapsed
+                    isCollapsed=true;
+                }
+                else
+                {
+                    //expanded
+                    isCollapsed=false;
+                }
+
                 //move backgroubng image and its bottom border
                 cover.setY(verticalOffset * 0.7f);
                 cover2.setY(verticalOffset * 0.7f);
@@ -159,7 +173,6 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
                 {
                     if (cover.getAlpha() != 0)
                     {
-//                        cover.animate().cancel();
                         cover.animate().alpha(0).setDuration(1200);
                     }
                 }
@@ -171,13 +184,14 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
                     boolean isCollapsed = (verticalOffset > -s) ? false : true;
                     if (cover.getAlpha() < 1 && verticalOffset > -s)
                     {
-//                        cover.animate().cancel();
                         cover.animate().alpha(1).setDuration(1200);
                     }
                 }
             }
         };
         appBar.addOnOffsetChangedListener(mListener);
+
+
 
         this.startAnimation();
     }
@@ -273,6 +287,8 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
     {
         super.onSaveInstanceState(outState);
         outState.putInt(NAV_ITEM_ID, this.checkedDrawerItemId);
+        outState.putBoolean(KEY_IS_COLLAPSED, isCollapsed);
+
     }
 
     @Override
@@ -322,6 +338,13 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         v.setBackgroundColor(colorAccent);
         v.animate().cancel();
 
+        Log.e(LOG, String.valueOf(isCollapsed));
+        if(!isCollapsed)
+        {
+            final AppBarLayout appBar = (AppBarLayout) this.findViewById(R.id.app_bar_layout);
+            appBar.setExpanded(true, true);
+        }
+
         //prevent showing transition coloring if cover isn't showing
         if(this.cover.getAlpha()==0)
         {
@@ -333,7 +356,8 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         {
             @Override
             public void onAnimationStart(Animator animation)
-            {}
+            {
+            }
 
             @Override
             public void onAnimationEnd(Animator animation)
@@ -344,11 +368,13 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
 
             @Override
             public void onAnimationCancel(Animator animation)
-            {}
+            {
+            }
 
             @Override
             public void onAnimationRepeat(Animator animation)
-            {}
+            {
+            }
         });
     }
 

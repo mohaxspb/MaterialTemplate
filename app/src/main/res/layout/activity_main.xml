@@ -22,7 +22,7 @@
             android:id="@+id/cover_2"
             android:layout_width="match_parent"
             android:background="@android:color/transparent"
-            android:layout_height="400dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
@@ -46,18 +46,6 @@
             android:background="@color/transparent"
             android:fitsSystemWindows="true"
             android:minHeight="96dip">
-
-            <!--<android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/detail_backdrop_height"
-                android:minHeight="88dip"
-                app:collapsedTitleGravity="top|center_vertical"
-                app:contentScrim="?attr/colorPrimary"
-                app:expandedTitleGravity="center"
-                app:expandedTitleMarginBottom="50dp"
-                app:expandedTitleMarginStart="100dp"
-                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">-->
 
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/collapsing_toolbar"

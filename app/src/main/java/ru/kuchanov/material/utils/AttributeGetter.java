@@ -20,4 +20,15 @@ public class AttributeGetter
 
         return colorId;
     }
+
+    public static int getHeight(Context ctx, int addressInRClass)
+    {
+        int colorId;
+        int[] attrs = new int[]{addressInRClass};
+        TypedArray ta = ctx.obtainStyledAttributes(attrs);
+        colorId = ta.getInt(0, -1);
+        ta.recycle();
+
+        return colorId;
+    }
 }
