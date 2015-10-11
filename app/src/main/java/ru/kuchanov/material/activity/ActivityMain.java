@@ -67,10 +67,7 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         this.pref = PreferenceManager.getDefaultSharedPreferences(this);
         int themeId = (pref.getBoolean(ActivitySettings.PREF_KEY_NIGHT_MODE, false)) ? R.style.My_Theme_Dark : R.style.My_Theme_Light;
         this.setTheme(themeId);
-
         //call super after setTheme to set it 0_0
-
-
         super.onCreate(savedInstanceState);
 
         if (null == savedInstanceState)
@@ -89,12 +86,14 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         this.pager = (ViewPager) this.findViewById(R.id.pager);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
         final ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowTitleEnabled(false);
+//        actionBar.setTitle(R.string.app_name);
 
         if (actionBar != null)
         {
-            actionBar.setTitle(R.string.app_name);
             actionBar.setDisplayHomeAsUpEnabled(true);
             mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.hello_world, R.string.hello_world)
             {
@@ -134,7 +133,8 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
 
         final CollapsingToolbarLayout collapsingToolbarLayout;
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle(this.getResources().getString(R.string.app_name));
+//        collapsingToolbarLayout.setTitle("Material");
+        collapsingToolbarLayout.setTitleEnabled(false);
 
         final AppBarLayout appBar = (AppBarLayout) this.findViewById(R.id.app_bar_layout);
         cover = (ImageView) findViewById(R.id.cover);

@@ -47,7 +47,7 @@
             android:fitsSystemWindows="true"
             android:minHeight="96dip">
 
-            <android.support.design.widget.CollapsingToolbarLayout
+            <!--<android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/collapsing_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/detail_backdrop_height"
@@ -57,6 +57,14 @@
                 app:expandedTitleGravity="center"
                 app:expandedTitleMarginBottom="50dp"
                 app:expandedTitleMarginStart="100dp"
+                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">-->
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/detail_backdrop_height"
+                android:minHeight="?attr/actionBarSize"
+                app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
 
                 <android.support.v7.widget.Toolbar
