@@ -33,7 +33,6 @@ import ru.kuchanov.material.DrawerUpdateSelected;
 import ru.kuchanov.material.ImageChanger;
 import ru.kuchanov.material.NavigationViewOnNavigationItemSelectedListener;
 import ru.kuchanov.material.R;
-import ru.kuchanov.material.utils.AttributeGetter;
 
 public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelected, ImageChanger
 {
@@ -50,9 +49,11 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
     protected ViewPager pager;
     protected int checkedDrawerItemId;
     protected SharedPreferences pref;
-    private Context ctx;
-//    private AppCompatActivity act;
+    //    private AppCompatActivity act;
     protected boolean isCollapsed;
+    private Context ctx;
+
+    private View cover2;
 
     //    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -77,15 +78,18 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         if (null == savedInstanceState)
         {
             checkedDrawerItemId = R.id.tab_1;
-            isCollapsed=true;
+            isCollapsed = true;
         }
         else
         {
             checkedDrawerItemId = savedInstanceState.getInt(NAV_ITEM_ID, R.id.tab_1);
-            isCollapsed=savedInstanceState.getBoolean(KEY_IS_COLLAPSED, false);
+            isCollapsed = savedInstanceState.getBoolean(KEY_IS_COLLAPSED, false);
         }
 
         setContentView(R.layout.activity_main);
+
+        cover2 = findViewById(R.id.cover_2_inside);
+        cover2.setAlpha(0);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
@@ -181,8 +185,6 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         };
         appBar.addOnOffsetChangedListener(mListener);
 
-
-
         this.startAnimation();
     }
 
@@ -196,7 +198,6 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         }
         return result;
     }
-
 
 
     @Override
@@ -322,27 +323,27 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
     public void updateImage(final int positionInPager)
     {
 //        Log.i(LOG, "updateImage with position in pager: "+positionInPager);
-        final View v=findViewById(R.id.cover_2_inside);
-        v.setAlpha(0);
-        int colorAccent= AttributeGetter.getColor(this, R.attr.colorAccent);
-        v.setBackgroundColor(colorAccent);
-        v.animate().cancel();
+
+        cover2.setAlpha(0);
+//        int colorAccent = AttributeGetter.getColor(this, R.attr.colorAccent);
+//        v.setBackgroundColor(colorAccent);
+        cover2.animate().cancel();
 
         Log.e(LOG, String.valueOf(isCollapsed));
-        if(!isCollapsed)
+        if (!isCollapsed)
         {
             final AppBarLayout appBar = (AppBarLayout) this.findViewById(R.id.app_bar_layout);
             appBar.setExpanded(true, true);
         }
 
         //prevent showing transition coloring if cover isn't showing
-        if(this.cover.getAlpha()==0)
+        if (this.cover.getAlpha() == 0)
         {
             cover.setImageResource(coverImgsIds[positionInPager]);
             return;
         }
 
-        v.animate().alpha(1).setDuration(400).setListener(new Animator.AnimatorListener()
+        cover2.animate().alpha(1).scaleX(15).scaleY(15).setDuration(600).setListener(new Animator.AnimatorListener()
         {
             @Override
             public void onAnimationStart(Animator animation)
@@ -353,7 +354,30 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
             public void onAnimationEnd(Animator animation)
             {
                 cover.setImageResource(coverImgsIds[positionInPager]);
-                v.animate().alpha(0).setDuration(400);
+                cover2.animate().alpha(0).setDuration(600).setListener(new Animator.AnimatorListener()
+                {
+                    @Override
+                    public void onAnimationStart(Animator animation)
+                    {
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation)
+                    {
+                        cover2.setScaleX(1);
+                        cover2.setScaleY(1);
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation)
+                    {
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation)
+                    {
+                    }
+                });
             }
 
             @Override

@@ -25,12 +25,32 @@
             android:background="@android:color/transparent"
             android:orientation="vertical">
 
-            <View
+            <!--<View
                 android:id="@+id/cover_2_inside"
                 android:layout_width="match_parent"
                 android:layout_height="290dp"
                 android:background="@android:color/transparent"
-                android:orientation="vertical"/>
+                android:orientation="vertical"/>-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:background="@android:color/transparent">
+
+                <!--<ImageView
+                    android:id="@+id/cover_2_inside"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/hello_world"
+                    android:orientation="vertical"
+                    android:src="?colorAccent"/>-->
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/cover_2_inside"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
 
             <View
                 android:layout_width="match_parent"
