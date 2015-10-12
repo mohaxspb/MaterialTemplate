@@ -21,21 +21,20 @@
         <LinearLayout
             android:id="@+id/cover_2"
             android:layout_width="match_parent"
+            android:layout_height="1000dp"
             android:background="@android:color/transparent"
-            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <View
                 android:id="@+id/cover_2_inside"
                 android:layout_width="match_parent"
                 android:layout_height="290dp"
                 android:background="@android:color/transparent"
                 android:orientation="vertical"/>
 
-            <LinearLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="1"
+                android:layout_height="710dp"
                 android:background="?android:windowBackground"/>
         </LinearLayout>
 
@@ -67,8 +66,8 @@
                     android:id="@+id/tab_layout"
                     android:layout_width="match_parent"
                     android:layout_height="40dip"
-                    android:layout_gravity="bottom"
-                    android:gravity="bottom"
+                    android:layout_gravity="bottom|end"
+                    android:gravity="bottom|end"
                     android:minHeight="40dip"
                     app:layout_scrollFlags="scroll|enterAlways"
                     app:tabGravity="center"

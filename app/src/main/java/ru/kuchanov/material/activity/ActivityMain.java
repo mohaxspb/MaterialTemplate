@@ -51,6 +51,7 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
     protected int checkedDrawerItemId;
     protected SharedPreferences pref;
     private Context ctx;
+//    private AppCompatActivity act;
     protected boolean isCollapsed;
 
     //    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -60,6 +61,7 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         Log.d(LOG, "onCreate");
 
         this.ctx = this;
+//        this.act=this;
 
         //set theme before super and set content to apply it
 //get default settings to get all settings later
@@ -90,14 +92,13 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         this.pager = (ViewPager) this.findViewById(R.id.pager);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
         final ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
-//        actionBar.setTitle(R.string.app_name);
 
         if (actionBar != null)
         {
+            actionBar.setDisplayShowTitleEnabled(false);
+
             actionBar.setDisplayHomeAsUpEnabled(true);
             mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.hello_world, R.string.hello_world)
             {
@@ -145,7 +146,7 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
         cover.setAlpha(0f);
         cover.setScaleX(1.3f);
         cover.setScaleY(1.3f);
-        cover.animate().alpha(1).setDuration(1200);
+        cover.animate().alpha(1).setDuration(600);
 
         final LinearLayout cover2 = (LinearLayout) findViewById(R.id.cover_2);
 
@@ -154,17 +155,6 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset)
             {
-                if(verticalOffset==0)
-                {
-                    //collapsed
-                    isCollapsed=true;
-                }
-                else
-                {
-                    //expanded
-                    isCollapsed=false;
-                }
-
                 //move backgroubng image and its bottom border
                 cover.setY(verticalOffset * 0.7f);
                 cover2.setY(verticalOffset * 0.7f);
@@ -173,7 +163,7 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
                 {
                     if (cover.getAlpha() != 0)
                     {
-                        cover.animate().alpha(0).setDuration(1200);
+                        cover.animate().alpha(0).setDuration(600);
                     }
                 }
                 else
@@ -181,10 +171,10 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
                     //show cover if we start to expand collapsingToolbarLayout
                     int heightOfToolbarAndStatusBar = toolbar.getHeight() + getStatusBarHeight();
                     int s = appBarLayout.getHeight() - heightOfToolbarAndStatusBar;
-                    boolean isCollapsed = (verticalOffset > -s) ? false : true;
-                    if (cover.getAlpha() < 1 && verticalOffset > -s)
+                    isCollapsed = (verticalOffset > -s);// ? false : true;
+                    if (cover.getAlpha() < 1 && isCollapsed)
                     {
-                        cover.animate().alpha(1).setDuration(1200);
+                        cover.animate().alpha(1).setDuration(600);
                     }
                 }
             }
@@ -332,9 +322,9 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
     public void updateImage(final int positionInPager)
     {
 //        Log.i(LOG, "updateImage with position in pager: "+positionInPager);
-        final LinearLayout v=(LinearLayout)findViewById(R.id.cover_2_inside);
+        final View v=findViewById(R.id.cover_2_inside);
         v.setAlpha(0);
-        int colorAccent= AttributeGetter.getColor(this, android.R.attr.colorAccent);
+        int colorAccent= AttributeGetter.getColor(this, R.attr.colorAccent);
         v.setBackgroundColor(colorAccent);
         v.animate().cancel();
 
