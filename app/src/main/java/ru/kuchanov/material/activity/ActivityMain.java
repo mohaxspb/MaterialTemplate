@@ -49,20 +49,16 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
     protected ViewPager pager;
     protected int checkedDrawerItemId;
     protected SharedPreferences pref;
-    //    private AppCompatActivity act;
     protected boolean isCollapsed;
     private Context ctx;
-
     private View cover2;
 
-    //    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         Log.d(LOG, "onCreate");
 
         this.ctx = this;
-//        this.act=this;
 
         //set theme before super and set content to apply it
 //get default settings to get all settings later
@@ -219,7 +215,6 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
     public boolean onPrepareOptionsMenu(Menu menu)
     {
 //        Log.d(LOG, "onPrepareOptionsMenu called");
-
         //recreate navigationView's menu, uncheck all items and set new checked item
         navigationView.getMenu().clear();
         navigationView.inflateMenu(R.menu.drawer);
@@ -323,10 +318,7 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
     public void updateImage(final int positionInPager)
     {
 //        Log.i(LOG, "updateImage with position in pager: "+positionInPager);
-
         cover2.setAlpha(0);
-//        int colorAccent = AttributeGetter.getColor(this, R.attr.colorAccent);
-//        v.setBackgroundColor(colorAccent);
         cover2.animate().cancel();
 
         Log.e(LOG, String.valueOf(isCollapsed));
@@ -396,7 +388,7 @@ public class ActivityMain extends AppCompatActivity implements DrawerUpdateSelec
     {
         cover.setVisibility(View.VISIBLE);
 
-        final int animResId = R.anim.test2;
+        final int animResId = R.anim.cover_image;
 
         Animation anim = AnimationUtils.loadAnimation(this, animResId);
         anim.setAnimationListener(new Animation.AnimationListener()
